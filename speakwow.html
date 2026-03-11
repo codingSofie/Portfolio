@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speakwow.ai — Sofie Yang</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F0E8;
+    --bg-card: #FDFAF4;
+    --text: #1A1714;
+    --text-muted: #6B6560;
+    --accent: #C96442;
+    --accent-light: #E8D5C4;
+    --border: #E2D9CC;
+    --tag-bg: #EDE6D8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 4rem;
+    background: rgba(245,240,232,0.88); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-back { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text-muted); font-size: 0.82rem; letter-spacing: 0.09em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-back:hover { color: var(--accent); }
+  .nav-back svg { width: 14px; height: 14px; }
+
+  .hero {
+    max-width: 900px; margin: 0 auto;
+    padding: 10rem 4rem 4rem;
+  }
+  .eyebrow { font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 400; line-height: 1.1; margin-bottom: 1.2rem; }
+  .page-title em { font-style: italic; color: var(--accent); }
+  .page-desc { font-size: 1rem; color: var(--text-muted); max-width: 560px; line-height: 1.8; margin-bottom: 2rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 3rem; }
+  .tag { background: var(--tag-bg); color: var(--text-muted); font-size: 0.74rem; letter-spacing: 0.05em; padding: 0.3rem 0.8rem; border-radius: 100px; border: 1px solid var(--border); }
+
+  hr.divider { max-width: 900px; margin: 0 auto; padding: 0 4rem; border: none; border-top: 1px solid var(--border); }
+
+  .videos-section {
+    max-width: 900px; margin: 0 auto;
+    padding: 4rem 4rem 8rem;
+  }
+  .section-label { font-size: 0.74rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 2.5rem; }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+  }
+
+  .video-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.2s;
+  }
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    border-color: var(--accent);
+  }
+  .video-card:hover .play-overlay { opacity: 1; }
+
+  .thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #1a1714;
+  }
+  .thumb-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .thumb-wrap svg {
+    width: 100%; height: 100%; display: block;
+  }
+  .play-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .play-btn {
+    width: 52px; height: 52px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play-btn svg { width: 22px; height: 22px; fill: white; margin-left: 3px; }
+
+  .video-body { padding: 1.2rem 1.4rem 1.4rem; }
+  .video-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .video-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.45rem; line-height: 1.35; }
+  .video-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+
+  @media (max-width: 680px) {
+    nav { padding: 1.1rem 1.5rem; }
+    .hero { padding: 8rem 1.5rem 3rem; }
+    .videos-section { padding: 3rem 1.5rem 6rem; }
+    .videos-grid { grid-template-columns: 1fr; }
+    hr.divider { padding: 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="sofie-portfolio.html" class="nav-logo">Sofie Yang</a>
+  <a href="sofie-portfolio.html#projects" class="nav-back">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M10 3L5 8l5 5"/>
+    </svg>
+    Back to Projects
+  </a>
+</nav>
+
+<div class="hero">
+  <p class="eyebrow">AI · Multi-Agent · EdTech</p>
+  <h1 class="page-title">Speakwow.ai —<br><em>Multi-Agent Learning System</em></h1>
+  <p class="page-desc">Built an AI-powered English learning platform from zero — architecting a multi-agent orchestration system where specialized agents handled user profiling, learning plan design, conversation flow, scriptwriting, and automated feedback loops. Secured 4 institutional B2B partnerships through consultative sales.</p>
+  <div class="tags">
+    <span class="tag">Multi-agent MOE system</span>
+    <span class="tag">30% MoM growth</span>
+    <span class="tag">60% CAC reduction</span>
+    <span class="tag">24x user engagement</span>
+    <span class="tag">B2B sales playbook</span>
+    <span class="tag">Agentic AI</span>
+    <span class="tag">LLM</span>
+    <span class="tag">EdTech</span>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="videos-section">
+  <p class="section-label">Demo Videos</p>
+  <h2 class="section-title">See it in action</h2>
+
+  <div class="videos-grid">
+
+    <!-- Video 1 -->
+    <a class="video-card" href="https://www.bilibili.com/video/BV1YhbCekEkZ/?spm_id_from=333.1387.homepage.video_card.click&vd_source=80106f002add3b70299b484296693ccf" target="_blank">
+      <div class="thumb-wrap">
+        
+        <img src="%E5%AD%A6%E7%94%9F%E4%BD%BF%E7%94%A82.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Student Use 2">
+      
+        <div class="play-overlay">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="video-body">
+        <p class="video-label">2024</p>
+        <h3 class="video-title">User Case — Speakwow.ai on iPad</h3>
+        <p class="video-desc">Private primary school scenario — students practising English one-on-one with the AI on iPads in class, with each session personalised to the learner's level and pace.</p>
+      </div>
+    </a>
+
+    <!-- Video 2 -->
+    <a class="video-card" href="https://www.bilibili.com/video/BV1QYbCe3Ef6/?spm_id_from=333.1387.homepage.video_card.click&vd_source=80106f002add3b70299b484296693ccf" target="_blank">
+      <div class="thumb-wrap">
+        
+        <img src="%E7%94%B5%E8%84%91%E6%95%99%E5%AE%A4%E4%BD%BF%E7%94%A8.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Computer Lab Use">
+      
+        <div class="play-overlay">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="video-body">
+        <p class="video-label">2024</p>
+        <h3 class="video-title">User Case — Speakwow.ai on PC</h3>
+        <p class="video-desc">Public school scenario in a Tier-3 city — students using Speakwow.ai in a shared computer lab, showing the platform's accessibility and impact beyond first-tier markets.</p>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+</body>
+</html>

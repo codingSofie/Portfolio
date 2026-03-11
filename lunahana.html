@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LunaHana — Sofie Yang</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F0E8;
+    --bg-card: #FDFAF4;
+    --text: #1A1714;
+    --text-muted: #6B6560;
+    --accent: #C96442;
+    --accent-light: #E8D5C4;
+    --border: #E2D9CC;
+    --tag-bg: #EDE6D8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 4rem;
+    background: rgba(245,240,232,0.88); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-back { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text-muted); font-size: 0.82rem; letter-spacing: 0.09em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-back:hover { color: var(--accent); }
+  .nav-back svg { width: 14px; height: 14px; }
+
+  .hero {
+    max-width: 900px; margin: 0 auto;
+    padding: 10rem 4rem 5rem;
+  }
+  .eyebrow { font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; margin-bottom: 1.4rem; }
+  .page-title em { font-style: italic; color: var(--accent); }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 3rem; }
+  .tag { background: var(--tag-bg); color: var(--text-muted); font-size: 0.74rem; letter-spacing: 0.05em; padding: 0.3rem 0.8rem; border-radius: 100px; border: 1px solid var(--border); }
+
+  hr.divider { max-width: 900px; margin: 0 auto; padding: 0 4rem; border: none; border-top: 1px solid var(--border); }
+
+  .content-section {
+    max-width: 900px; margin: 0 auto;
+    padding: 5rem 4rem 8rem;
+  }
+
+  /* Story block */
+  .story {
+    max-width: 640px;
+  }
+  .story p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 1.6rem;
+  }
+  .story p:last-child { margin-bottom: 0; }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 0.6rem 0 0.6rem 1.8rem;
+    margin: 3rem 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* Innovation block */
+  .innovation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 3.5rem;
+  }
+  .innovation-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .innovation-icon { font-size: 1.4rem; margin-bottom: 0.8rem; }
+  .innovation-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .innovation-title { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.5rem; }
+  .innovation-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+
+  @media (max-width: 680px) {
+    nav { padding: 1.1rem 1.5rem; }
+    .hero { padding: 8rem 1.5rem 3rem; }
+    .content-section { padding: 3rem 1.5rem 6rem; }
+    .innovation-grid { grid-template-columns: 1fr; }
+    hr.divider { padding: 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="sofie-portfolio.html" class="nav-logo">Sofie Yang</a>
+  <a href="sofie-portfolio.html#projects" class="nav-back">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M10 3L5 8l5 5"/>
+    </svg>
+    Back to Projects
+  </a>
+</nav>
+
+<div class="hero">
+  <p class="eyebrow">Creative · Vibe Coding · AI × Game</p>
+  <h1 class="page-title">LunaHana —<br><em>A Witch RPG Built by AI</em></h1>
+  <div class="tags">
+    <span class="tag">Vibe Coding</span>
+    <span class="tag">Game Design</span>
+    <span class="tag">LLM NPCs</span>
+    <span class="tag">Creative AI</span>
+    <span class="tag">Human–AI Collaboration</span>
+    <span class="tag">RPG</span>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="content-section">
+  <div class="story">
+    <p>LunaHana is a female-perspective RPG witch game that I built independently over five months — from concept to art to development. It has been my childhood dream to create a majo experience focused on self-discovery rather than traditional battles.</p>
+
+    <div class="pull-quote">
+      <p>"I wanted to push the limits of AI-assisted programming and test how far AI can go in creative workflows."</p>
+    </div>
+
+    <p>The project was driven by my passion for exploring human–AI collaboration. The key innovation is the integration of LLM-based NPCs and AI-driven open-ended magical interactions that generate rich, branching storylines — essentially creating a living, breathing world where every player's experience can be unique.</p>
+  </div>
+
+  <div class="innovation-grid">
+    <div class="innovation-card">
+      <div class="innovation-icon">🧙‍♀️</div>
+      <p class="innovation-label">Core Vision</p>
+      <h3 class="innovation-title">Self-Discovery over Battle</h3>
+      <p class="innovation-desc">A female-perspective RPG built around identity and growth — replacing combat loops with magical exploration and emotional storytelling.</p>
+    </div>
+    <div class="innovation-card">
+      <div class="innovation-icon">🤖</div>
+      <p class="innovation-label">Key Innovation</p>
+      <h3 class="innovation-title">LLM-Powered NPCs</h3>
+      <p class="innovation-desc">NPCs driven by large language models enable open-ended conversations and AI-generated branching storylines — every playthrough is unique.</p>
+    </div>
+    <div class="innovation-card">
+      <div class="innovation-icon">🎨</div>
+      <p class="innovation-label">Process</p>
+      <h3 class="innovation-title">Solo-Built in 5 Months</h3>
+      <p class="innovation-desc">Concept, art direction, and development handled end-to-end — testing the full creative potential of AI-assisted game production.</p>
+    </div>
+    <div class="innovation-card">
+      <div class="innovation-icon">✨</div>
+      <p class="innovation-label">Experiment</p>
+      <h3 class="innovation-title">Human × AI Collaboration</h3>
+      <p class="innovation-desc">A deliberate push to explore where human creative direction ends and AI execution begins — redefining what one person can build alone.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
