@@ -190,8 +190,10 @@ export default function Home() {
         <h2 className="section-title reveal">Things I&apos;ve <em>built</em></h2>
         <div className="projects-grid">
 
-          <a className="project-card reveal" href="/projects/speakwow" target="_blank">
-            <div className="project-thumb" style={{ background: '#1a1714' }}>🤖</div>
+          <a className="project-card reveal" href="https://speakwow.ai" target="_blank" rel="noopener noreferrer">
+            <div className="project-thumb" style={{ background: '#000', padding: 0 }}>
+              <Image src="/speakwow-cover.jpg" alt="Speakwow.ai" width={640} height={360} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <div className="project-body">
               <p className="project-type">AI · Multi-Agent</p>
               <h3 className="project-title">Speakwow.ai — Multi-Agent Learning System</h3>
@@ -205,11 +207,13 @@ export default function Home() {
             </div>
           </a>
 
-          <a className="project-card reveal" href="#" target="_blank">
-            <div className="project-thumb">🧠</div>
+          <a className="project-card reveal" href="https://dokki.one" target="_blank" rel="noopener noreferrer">
+            <div className="project-thumb" style={{ background: '#000', padding: 0 }}>
+              <Image src="/dokki-cover.jpg" alt="Dokki — AI-Native Knowledge Base" width={640} height={360} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <div className="project-body">
               <p className="project-type">Personal Productivity · Knowledge Base</p>
-              <h3 className="project-title">AI-Native Personal Knowledge Base</h3>
+              <h3 className="project-title">Dokki.one — AI-Native Knowledge Base</h3>
               <p className="project-desc">An AI-native personal knowledge management system with an AI copilot that has access to all your personal documents — search, edit, and write docs and forms, and manage your second brain through a conversational intelligent assistant.</p>
               <div className="project-tags">
                 <span className="project-tag">Knowledge Graph</span>
@@ -220,7 +224,9 @@ export default function Home() {
           </a>
 
           <a className="project-card reveal" href="/projects/lunahana" target="_blank">
-            <div className="project-thumb">🎮</div>
+            <div className="project-thumb" style={{ background: '#000', padding: 0 }}>
+              <Image src="/lunahana.png" alt="LunaHana Game" width={640} height={360} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <div className="project-body">
               <p className="project-type">Creative · Vibe Coding</p>
               <h3 className="project-title">AI-Built Game</h3>
@@ -273,7 +279,9 @@ export default function Home() {
           </a>
 
           <a className="project-card reveal" href="https://rwa.naxlab.xyz/" target="_blank" rel="noopener noreferrer">
-            <div className="project-thumb">🌐</div>
+            <div className="project-thumb" style={{ background: '#000', padding: 0 }}>
+              <Image src="/virium.png" alt="Virium 3D Gen-AI Game" width={640} height={360} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <div className="project-body">
               <p className="project-type">3D Gen-AI · Game-Fi · Art Direction</p>
               <h3 className="project-title">Virium — 3D Gen-AI Game Project</h3>
