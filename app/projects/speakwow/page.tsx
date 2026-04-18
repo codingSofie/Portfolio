@@ -26,6 +26,12 @@ export default function SpeakwowPage() {
         <p className="page-desc">
           Built an AI-powered English learning platform from zero — architecting a multi-agent orchestration system where specialized agents handled user profiling, learning plan design, conversation flow, scriptwriting, and automated feedback loops. Secured 4 institutional B2B partnerships through consultative sales.
         </p>
+        <div className="hero-cta" style={{ marginBottom: '2rem' }}>
+          <a href="https://speakwow.ai" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            Visit Speakwow.ai ↗
+          </a>
+        </div>
+
         <div className="tags">
           <span className="tag">Multi-agent MOE system</span>
           <span className="tag">30% MoM growth</span>

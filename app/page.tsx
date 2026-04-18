@@ -190,7 +190,7 @@ export default function Home() {
         <h2 className="section-title reveal">Things I&apos;ve <em>built</em></h2>
         <div className="projects-grid">
 
-          <a className="project-card reveal" href="https://speakwow.ai" target="_blank" rel="noopener noreferrer">
+          <a className="project-card reveal" href="/projects/speakwow">
             <div className="project-thumb" style={{ background: '#000', padding: 0 }}>
               <Image src="/speakwow-cover.jpg" alt="Speakwow.ai" width={640} height={360} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
@@ -207,7 +207,7 @@ export default function Home() {
             </div>
           </a>
 
-          <a className="project-card reveal" href="https://dokki.one" target="_blank" rel="noopener noreferrer">
+          <a className="project-card reveal" href="/projects/dokki">
             <div className="project-thumb" style={{ background: '#000', padding: 0 }}>
               <Image src="/dokki-cover.jpg" alt="Dokki — AI-Native Knowledge Base" width={640} height={360} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
